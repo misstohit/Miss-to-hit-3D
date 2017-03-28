@@ -1,4 +1,4 @@
-union() {
+/*union() {
   translate([2, 2, 0]) {
     rotate([90, 90, 0]) {
       rotate(-30){
@@ -11,7 +11,7 @@ union() {
       triangle_tube(20, 5.4/2, 5.4/2);
     }
   }
-}
+}*/
 
 
 module triangle(radius)
@@ -99,6 +99,7 @@ module cone(height, radius, center = false)
   cylinder(height, radius, 0, center);
 }
 
+
 module oval_prism(height, rx, ry, center = false)
 {
   scale([1, rx/ry, 1]) cylinder(h=height, r=ry, center=center);
@@ -123,8 +124,8 @@ module tubify(radius,wall)
 {
   difference()
   {
-    child(0);
-    translate([0, 0, -0.1]) scale([(radius-wall)/radius, (radius-wall)/radius, 2]) child(0);
+    children(0);
+    translate([0, 0, -0.1]) scale([(radius-wall)/radius, (radius-wall)/radius, 2]) children(0);
   }
 }
 
