@@ -6,8 +6,8 @@ Descripción
 
 <p align="center">
   <img src="images/cylinder_cavities.png" width="350"/>
-  <img src="yimages/cylinder_cavities_cone.png" width="350"/>
-  <img src="yimages/cylinder_cap.png" width="350"/>
+  <img src="images/cylinder_cavities_cone.png" width="350"/>
+  <img src="images/cylinder_cap.png" width="350"/>
 </p>
 
 ## OpenScad ##
