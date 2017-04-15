@@ -10,23 +10,29 @@ radio_pajita_grosor = 1.5;
 cono_altura = 18;
 
 difference() {
-  %cilindro_base(diametro_cilindo, diametro_cilindo_interior, altura);
+  cilindro_base(diametro_cilindo, diametro_cilindo_interior, altura);
   separacion_cilindro(pathRadius, num, altura);
 }
 conos();
 
 module conos() {
-  translate([18, 0, 12]) {
+  translate([18, 0, 16]) {
     rotate([0, 90, 0]) {
-      triangulo_base();
+      colores = "red";
+      color(colores){
+        triangulo_base();
+      }
     }
     //#cilindro();
   }
-  translate([-18, 0, 0]) {
+  translate([-18, 0, 16]) {
     rotate([0, 90, 0]) {
-      #triangulo_base();
+      colores = "red";
+      color(colores){
+        triangulo_base();
+      }
     }
-    #cilindro();
+    /*#cilindro();*/
   }
 }
 
@@ -59,7 +65,7 @@ module separacion_cilindro(distancia, numero, alt) {
 module cilindro_base(diamentro, interior, altura) {
   difference() {
     cylinder(r=diamentro, h=altura, $fn=100);
-    cylinder(r=diametro_cilindo_interior, h=altura, $fn=100);
+    //cylinder(r=diametro_cilindo_interior, h=altura, $fn=100);
   }
 }
 
@@ -80,7 +86,7 @@ module cono(base, medio, altura_cono) {
 module triangulo_base(){
   rotate([0, 90, 0]) {
     rotate(-30){
-      triangle_tube(10, 5.4/2, 5.4/2);
+      triangle_tube(16, 6.2/2, 6.2/2);
     }
   }
 }
