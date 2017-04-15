@@ -22,7 +22,7 @@ module main() {
     cylinder_base(cylinder_dim, height);
     tabs(pathRadius, num, height);
   }
-  separacion_cilindro(pathRadius, num, height);
+  cylinder_hole_creator(pathRadius, num, height);
 }
 
 
@@ -30,7 +30,7 @@ module main() {
 * Modulo create triagle support
 * Params Distence bwteeen of support, num of support, height of support
 **/
-module separacion_cilindro(distancia, numero, alt) {
+module cylinder_hole_creator(distancia, numero, alt) {
   triangle_data = [10.5, 5.3, 5.3, -90];
   for (i=[1:numero])  {
     translate([distancia*cos(i*(360/numero)),distancia*sin(i*(360/numero)),0]){
