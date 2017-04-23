@@ -9,6 +9,8 @@ include <utils/triangle_system.scad>;
 //Const cylinder
 cylinder_dim = 25;
 height = 3;
+
+//hole cones
 pathRadius=36/2;
 num=2;
 

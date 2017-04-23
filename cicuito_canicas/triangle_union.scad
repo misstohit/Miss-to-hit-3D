@@ -1,31 +1,22 @@
 
-module step(len, mod)
-{
-	for (i = [0:$children-1])
-		translate([ len*(i - ($children-1)/2), 0, 0 ]) children((i+mod) % $children);
-}
-
-for (i = [1:5])
-{
-	translate([0, -50+i*20, 0]) step(32, i)
-	{
-      triangulo_base();
-      triangulo_base();
-      triangulo_base();
-      triangulo_base();
-	}
-}
 
 
-module triangulo_base(){
+module triangulo_base(height, radio, wall) {
+  //const
+  triangle_height = height;
+  triangle_radio = radio;
+  triangle_wall = wall;
+
+  /*triangle_height = 25;
+  triangle_radio = 5.4/2;
+  triangle_wall = 5.4/2;*/
+	//Rotate triangle To lean on the bed of the printer
   rotate([0, 90, 0]) {
     rotate(-30){
-      triangle_tube(25, 5.4/2, 5.4/2);
+      triangle_tube(triangle_height, triangle_radio, triangle_wall);
     }
   }
 }
-
-
 
 //triangle_tube(20, 5, 5);
 module triangle_tube(height,radius,wall)
@@ -38,8 +29,8 @@ module tubify(radius,wall)
 {
   difference()
   {
-    child(0);
-    translate([0, 0, -0.1]) scale([(radius-wall)/radius, (radius-wall)/radius, 2]) child(0);
+    children(0);
+    translate([0, 0, -0.1]) scale([(radius-wall)/radius, (radius-wall)/radius, 2]) children(0);
   }
 }
 
