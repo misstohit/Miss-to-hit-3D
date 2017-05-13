@@ -20,7 +20,7 @@ cone_height = height;
 main();
 module main(){
   difference() {
-    %cilindro_base(cylinder_dim, cylinder_dim_inside, height);
+    cilindro_base(cylinder_dim, cylinder_dim_inside, height);
     cylinder_hole_creator(pathRadius, num, height);
   }
 }
