@@ -13,7 +13,7 @@ height = 3;
 
 //hole cones
 pathRadius=36/2;
-num_cap=2;
+num_cap=4;
 
 
 /**
@@ -56,7 +56,7 @@ module cyliner_gear(cylinder_dim, height){
 * Params Distence bwteeen of support, num of support, height of support
 **/
 module cylinder_hole_creator(distancia, numero, alt) {
-  triangle_data = [10.5, 5.3, 5.3, -90];
+  triangle_data = [10, 5.1, 5.1, -90];
   for (i=[1:numero])  {
     translate([distancia*cos(i*(360/numero)),distancia*sin(i*(360/numero)),0]){
       if(i == 1){
@@ -69,6 +69,32 @@ module cylinder_hole_creator(distancia, numero, alt) {
         color(colores) {
           triangle_base(triangle_data[0], triangle_data[1], triangle_data[2], -30);
         }
+      }
+    }
+  }
+}
+
+
+/**
+* Modulo create tabs of cap
+**/
+module tabs(distancia, numero, alt) {
+  tabs_dimensions = [5, 10, 4];
+  position = [-7.5, -5, 2];
+  position_x = position[0];
+  position_x_opos = abs(position_x) / 2;
+  for (i=[1:numero])  {
+    translate([distancia*cos(i*(360/numero)),distancia*sin(i*(360/numero)),0]){
+      if(i == 1){
+        translate([-7.5, -5, 2]) {
+          cube(size=tabs_dimensions);
+        }
+
+      } else {
+        translate([position_x_opos, position[1], position[2]]) {
+          cube(size=tabs_dimensions);
+        }
+
       }
     }
   }
